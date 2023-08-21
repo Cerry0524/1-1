@@ -8,7 +8,7 @@ class Viewer extends DB{
     }
     function backend(){
         $view=[
-            'rows'=>$this->all(),
+            'rows'=>$this->find(1)['viewer'],
             'header'=>"頁尾版權資料管理",
         ];
         return $this->view("./view/backend/viewer.php",$view);

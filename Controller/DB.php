@@ -118,7 +118,7 @@ class DB
         ];
         return $rows;
     }
-    function links($table)
+    function links($table=null)
     {
         $do = (is_null($table)) ? $this->table : $table;
         $html = '';
@@ -130,7 +130,7 @@ class DB
             $fontsize = ($i == $this->links['now']) ? "24px" : "16px";
             $html .= "<a href='?do=$do&p=$i' style='font-size:$fontsize'> $i </a>";
         }
-        if ($this->links['now'] + 1 <= 1) {
+        if ($this->links['now'] + 1 <= $this->links['pages']) {
             $next = $this->links['now'] + 1;
             $html .= "<a href='?do=$do&p=$next'> &gt; </a>";
         }

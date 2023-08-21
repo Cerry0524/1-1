@@ -8,7 +8,8 @@ class Image extends DB{
     }
     function backend(){
         $view=[
-            'rows'=>$this->all(),
+            'rows'=>$this->paginate(3),
+            'links'=>$this->links(),
             'header'=>"校園映像資料管理",
             'addBtn'=>"新增校園映像圖片",
             'modal'=>"./view/modal/image.php",

@@ -8,12 +8,9 @@ class Bottom extends DB{
     }
     function backend(){
         $view=[
-            'rows'=>$this->all(),
-            'header'=>"網站標題管理",
-            'addBtn'=>"修改確定",
-            'modal'=>"./api/add.php",
-            'updateBtn'=>"更新圖片",
-            'updateModal'=>"./view/modal/bottom.php",
+            'rows'=>$this->find(1)['bottom'],
+            'header'=>"頁尾版權資料管理",
+    
         ];
         return $this->view("./view/backend/bottom.php",$view);
     }

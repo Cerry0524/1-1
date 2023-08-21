@@ -13,35 +13,30 @@
         <table width="100%">
             <tbody>
                 <tr class="yel">
-                    <td width="45%">網站標題</td>
-                    <td width="23%">替代文字</td>
+                    <td width="68%">最新消息資料內容</td>
                     <td width="7%">顯示</td>
                     <td width="7%">刪除</td>
-                    <td></td>
-                </tr>
-                <?php
-                foreach ($rows as $row) {
-                ?>
-                    <tr class="">
-                        <td width="45%">
-                            <img src="./upload/<?= $row['img']; ?>" style="width:300px;height:30px">
-                        </td>
-                        <td width="23%">
-                            <input type="text" name="text" value="<?= $row['text']; ?>">
-                        </td>
-                        <td width="7%">
-                            <input type="radio" name="sh[]" id="<?= $row['sh']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>
-                        </td>
-                        <td width="7%">
-                            <input type="checkbox" name="del[]" id="<?= $row['id']; ?>">
-                        </td>
-                        <td><input type="button" onclick="op('#cover','#cvr','<?= $updateModal; ?>')" value="<?= $updateBtn; ?>"></td>
-                    </tr>
-                <?php
-                }
-                ?>
+                    <?php
+                    foreach ($rows as $row) {
+                    ?>
+                <tr class="">
+
+                    <td width="68%">
+                        <textarea name="text" style="width:500px;height:55px"><?= $row['text']; ?></textarea>
+
+                    </td>
+                    <td width="7%">
+                        <input type="checkbox" name="sh[]" id="<?= $row['sh']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>
+                    </td>
+                    <td width="7%">
+                        <input type="checkbox" name="del[]" id="<?= $row['id']; ?>">
+
+                    <?php
+                    }
+                    ?>
             </tbody>
         </table>
+        <div class="cent"><?=$links;?></div>
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>

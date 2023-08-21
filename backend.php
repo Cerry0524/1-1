@@ -20,96 +20,95 @@
 		</div>
 	</div>
 	<iframe style="display:none;" name="back" id="back"></iframe>
-	<div id="main">
-		<a title="" href="?">
-			<div class="ti" style="background:url('use/'); background-size:cover;"></div><!--標題-->
-		</a>
-		<div id="ms">
-			<div id="lf" style="float:left;">
-				<div id="menuput" class="dbor">
-					<!--主選單放此-->
-					<span class="t botli">後台管理選單</span>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=title">
-						<div class="mainmu">
-							網站標題管理 </div>
-					</a>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=ad">
-						<div class="mainmu">
-							動態文字廣告管理 </div>
-					</a>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=mvim">
-						<div class="mainmu">
-							動畫圖片管理 </div>
-					</a>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=image">
-						<div class="mainmu">
-							校園映象資料管理 </div>
-					</a>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=total">
-						<div class="mainmu">
-							進站總人數管理 </div>
-					</a>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=bottom">
-						<div class="mainmu">
-							頁尾版權資料管理 </div>
-					</a>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=news">
-						<div class="mainmu">
-							最新消息資料管理 </div>
-					</a>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=admin">
-						<div class="mainmu">
-							管理者帳號管理 </div>
-					</a>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=menu">
-						<div class="mainmu">
-							選單管理 </div>
-					</a>
+	<a title="<?= $Title->show()['text']; ?>" href="index.php">
+		<div class="ti" style="background:url(../upload/<?= $Title->show()['img']; ?>); background-size:cover;"></div><!--標題-->
+	</a>
+	<div id="ms">
+		<div id="lf" style="float:left;">
+			<div id="menuput" class="dbor">
+				<!--主選單放此-->
+				<span class="t botli">後台管理選單</span>
+				<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=title">
+					<div class="mainmu">
+						網站標題管理 </div>
+				</a>
+				<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=ad">
+					<div class="mainmu">
+						動態文字廣告管理 </div>
+				</a>
+				<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=mvim">
+					<div class="mainmu">
+						動畫圖片管理 </div>
+				</a>
+				<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=image">
+					<div class="mainmu">
+						校園映象資料管理 </div>
+				</a>
+				<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=viewer">
+					<div class="mainmu">
+						進站總人數管理 </div>
+				</a>
+				<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=bottom">
+					<div class="mainmu">
+						頁尾版權資料管理 </div>
+				</a>
+				<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=news">
+					<div class="mainmu">
+						最新消息資料管理 </div>
+				</a>
+				<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=admin">
+					<div class="mainmu">
+						管理者帳號管理 </div>
+				</a>
+				<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=menu">
+					<div class="mainmu">
+						選單管理 </div>
+				</a>
 
 
-				</div>
-				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 :<?= $Viewer->find(1)['viewer']; ?></span>
-				</div>
 			</div>
-			<div class="di" style="height:540px; border:#999 1px solid; width:76.5%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
-				<!--正中央-->
-				<?php
-				$do = $_GET['do'] ?? 'title';
-				$file = './view/backend/{$do}.php';
-				$table = ucfirst($do);
-				if (isset($$table)) {
-					$$table->backend();
-				} else if (file_exists($file)) {
-					include $file;
-				} else {
-					include './view/backend/main.php';
+			<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
+				<span class="t">進站總人數 :<?= $Viewer->find(1)['viewer']; ?></span>
+			</div>
+		</div>
+		<div class="di" style="height:540px; border:#999 1px solid; width:76.5%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
+			<!--正中央-->
+			<?php
+			$do = $_GET['do'] ?? 'title';
+			$file = './view/backend/{$do}.php';
+			$table = ucfirst($do);
+			if (isset($$table)) {
+				$$table->backend();
+			} else if (file_exists($file)) {
+				include $file;
+			} else {
+				include './view/backend/title.php';
+			}
+
+			?>
+		</div>
+		<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
+		</div>
+		<script>
+			$(".sswww").hover(
+				function() {
+					$("#alt").html("" + $(this).children(".all").html() + "").css({
+						"top": $(this).offset().top - 50
+					})
+					$("#alt").show()
 				}
-
-				?>
-			</div>
-			<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
-			</div>
-			<script>
-				$(".sswww").hover(
-					function() {
-						$("#alt").html("" + $(this).children(".all").html() + "").css({
-							"top": $(this).offset().top - 50
-						})
-						$("#alt").show()
-					}
-				)
-				$(".sswww").mouseout(
-					function() {
-						$("#alt").hide()
-					}
-				)
-			</script>
-		</div>
-		<div style="clear:both;"></div>
-		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
-		</div>
+			)
+			$(".sswww").mouseout(
+				function() {
+					$("#alt").hide()
+				}
+			)
+		</script>
+	</div>
+	<div style="clear:both;"></div>
+	<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
+		<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
+	</div>
 	</div>
 
 </body>
