@@ -10,11 +10,12 @@ class Title extends DB{
         $view=[
             'rows'=>$this->all(),
             'header'=>"網站標題管理",
-            'addBtn'=>"修改確定",
-            'modal'=>"./api/add.php",
+            'addBtn'=>"新增網站標題圖片",
+            'modal'=>"./view/modal/title.php",
             'updateBtn'=>"更新圖片",
-            'updateModal'=>"./view/modal/title.php",
+            'updateModal'=>"./view/modal/updateTitle.php",
         ];
         return $this->view("./view/backend/title.php",$view);
     }
+
 }

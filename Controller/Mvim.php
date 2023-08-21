@@ -9,11 +9,11 @@ class Mvim extends DB{
     function backend(){
         $view=[
             'rows'=>$this->all(),
-            'header'=>"網站標題管理",
-            'addBtn'=>"修改確定",
-            'modal'=>"./api/add.php",
-            'updateBtn'=>"更新圖片",
-            'updateModal'=>"./view/modal/mvim.php",
+            'header'=>"動畫圖片管理",
+            'addBtn'=>"新增動畫圖片",
+            'modal'=>"./view/modal/mvim.php",
+            'updateBtn'=>"更新動畫",
+            'updateModal'=>"./view/modal/updateMvim.php",
         ];
         return $this->view("./view/backend/mvim.php",$view);
     }

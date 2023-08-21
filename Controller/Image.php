@@ -9,11 +9,11 @@ class Image extends DB{
     function backend(){
         $view=[
             'rows'=>$this->all(),
-            'header'=>"網站標題管理",
-            'addBtn'=>"修改確定",
-            'modal'=>"./api/add.php",
-            'updateBtn'=>"更新圖片",
-            'updateModal'=>"./view/modal/image.php",
+            'header'=>"校園映像資料管理",
+            'addBtn'=>"新增校園映像圖片",
+            'modal'=>"./view/modal/image.php",
+            'updateBtn'=>"更換圖片",
+            'updateModal'=>"./view/modal/upateImage.php",
         ];
         return $this->view("./view/backend/image.php",$view);
     }

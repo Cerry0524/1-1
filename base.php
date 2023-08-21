@@ -10,6 +10,7 @@ include_once __DIR__."/Controller/Admin.php";
 include_once __DIR__."/Controller/Bottom.php";
 include_once __DIR__."/Controller/Image.php";
 include_once __DIR__."/Controller/Viewer.php";
+include_once __DIR__."/Controller/Menu.php";
 
 
 $News=new News;
@@ -20,6 +21,7 @@ $Admin=new Admin;
 $Bottom=new Bottom;
 $Image=new Image;
 $Viewer=new Viewer;
+$Menu=new Menu;
 
 function dd($array){
     echo "<pre>";

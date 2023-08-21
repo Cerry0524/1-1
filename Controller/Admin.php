@@ -9,11 +9,9 @@ class Admin extends DB{
     function backend(){
         $view=[
             'rows'=>$this->all(),
-            'header'=>"網站標題管理",
-            'addBtn'=>"修改確定",
-            'modal'=>"./api/add.php",
-            'updateBtn'=>"更新圖片",
-            'updateModal'=>"./view/modal/admin.php",
+            'header'=>"管理者帳號管理",
+            'addBtn'=>"新增管理者帳號",
+            'modal'=>"./view/modal/admin.php",
         ];
         return $this->view("./view/backend/admin.php",$view);
     }

@@ -19,7 +19,6 @@
 			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 		</div>
 	</div>
-	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
 		<a title="卓越科技大學校園資訊系" href="index.php">
 			<div class="ti" style="background:url('use/'); background-size:cover;"></div><!--標題-->
@@ -39,9 +38,7 @@
 				$do = $_GET['do'] ?? 'main';
 				$file = './view/front/{$do}.php';
 				$table = ucfirst($do);
-				if (isset($$table)) {
-					$$table->front();
-				} else if (file_exists($file)) {
+				if (file_exists($file)) {
 					include $file;
 				} else {
 					include './view/front/main.php';

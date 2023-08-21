@@ -9,11 +9,9 @@ class Ad extends DB{
     function backend(){
         $view=[
             'rows'=>$this->all(),
-            'header'=>"網站標題管理",
-            'addBtn'=>"修改確定",
-            'modal'=>"./api/add.php",
-            'updateBtn'=>"更新圖片",
-            'updateModal'=>"./view/modal/ad.php",
+            'header'=>"動態文字廣告管理",
+            'addBtn'=>"新增動態文字廣告",
+            'modal'=>"./view/modal/ad.php",
         ];
         return $this->view("./view/backend/ad.php",$view);
     }
